@@ -10,7 +10,7 @@ resources:
 
 variables:
   # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: '70024580-8f1c-49c1-96d8-7970cccfdb21'
+  dockerRegistryServiceConnection: 'dd01c30b-08f3-469b-af18-39f72fdd8e72'
   imageRepository: 'ehrnjicdotnetcoresqldbwebapp'
   containerRegistry: 'crehrtest.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
