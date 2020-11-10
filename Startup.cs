@@ -59,6 +59,22 @@ namespace DotNetCoreSqlDb
                     name: "default",
                     pattern: "{controller=Todos}/{action=Index}/{id?}");
             });
+
+            // Apply Database migrations on startup
+            UpdateDatabase(app);
+        }
+
+        private static void UpdateDatabase(IApplicationBuilder app)
+        {
+            using (var serviceScope = app.ApplicationServices
+                .GetRequiredService<IServiceScopeFactory>()
+                .CreateScope())
+            {
+                using (var context = serviceScope.ServiceProvider.GetService<MyDatabaseContext>())
+                {
+                    context.Database.Migrate();
+                }
+            }
         }
     }
 }
